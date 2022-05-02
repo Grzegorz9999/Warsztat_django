@@ -35,4 +35,20 @@ def add_room(request):
 
 
         Room.objects.create(name=name, capacity=capacity, projector=projector)
-        return redirect("room-list")
+        return redirect("/room/list")
+
+#def show_room_list(request):
+ #   rooms = Room.objects.all()
+
+  #  return render(
+   #     request,
+    #    'exercise/show_room_list.html',
+     #   context={
+      #      'room': rooms,
+       # }
+   # )
+
+class RoomListView(View):
+    def get(self, request):
+        rooms = Room.objects.all()
+        return render(request, "exercise/show_room_list.html", context={"rooms": rooms})
