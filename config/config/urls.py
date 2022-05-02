@@ -20,4 +20,5 @@ from exercise import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('booking/', views.main),
+    path('room/new', views.add_room),
 ]
